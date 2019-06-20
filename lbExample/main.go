@@ -18,7 +18,7 @@ func main() {
 	}
 
 	//load balance
-	lb := RoundRobinBalance{curIndex: 0}
+	lb := Balance{curIndex: 0}
 	for {
 		inst, err := lb.RoundRobinBalance(insts)
 		if err != nil {
