@@ -19,11 +19,11 @@ func NewInstance(host string, port int) Instance {
 	}
 }
 
-type RoundRobinBalance struct {
+type Balance struct {
 	curIndex int
 }
 
-func (p *RoundRobinBalance) RoundRobinBalance(insts []Instance) (inst Instance, err error) {
+func (p *Balance) RoundRobinBalance(insts []Instance) (inst Instance, err error) {
 	if len(insts) == 0 {
 		err = errors.New("no instance")
 		return
@@ -37,7 +37,7 @@ func (p *RoundRobinBalance) RoundRobinBalance(insts []Instance) (inst Instance, 
 	return
 }
 
-func (p *RoundRobinBalance) RandomBalance(insts []Instance) (inst Instance, err error) {
+func (p *Balance) RandomBalance(insts []Instance) (inst Instance, err error) {
 	if len(insts) == 0 {
 		err = errors.New("no instance")
 		return
